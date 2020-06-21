@@ -92,5 +92,29 @@ class TicTacToeTest {
                 .isEqualTo("X is the winner");
     }
 
+    @Test
+    public void WhenPlayAndFirstDiagonalLineThenWinner() {
+        ticTacToe.play(1, 1);
+        ticTacToe.play(1, 2);
+        ticTacToe.play(2, 2);
+        ticTacToe.play(3, 1);
+        String actual = ticTacToe.play(3, 3);
+
+        assertThat(actual)
+                .isEqualTo("X is the winner");
+    }
+
+    @Test
+    public void WhenPlayAndSecondDiagonalLineThenWinner() {
+        ticTacToe.play(3, 1);
+        ticTacToe.play(1, 2);
+        ticTacToe.play(2, 2);
+        ticTacToe.play(2, 1);
+        String actual = ticTacToe.play(1, 3);
+
+        assertThat(actual)
+                .isEqualTo("X is the winner");
+    }
+
 
 }
