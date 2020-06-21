@@ -6,10 +6,13 @@ public class TicTacToe {
             {'\0', '\0', '\0'},
             {'\0', '\0', '\0'}};
 
+    private char lastPlayer = '\0';
+
     public void play(int X, int Y) {
-       checkAxis(X);
-       checkAxis(Y);
-       setBox(X, Y);
+        checkAxis(X);
+        checkAxis(Y);
+        setBox(X, Y);
+        lastPlayer = nextPlayer();
     }
 
     public void checkAxis(int field) {
@@ -27,7 +30,9 @@ public class TicTacToe {
     }
 
     public char nextPlayer() {
-
+        if (lastPlayer == 'X') {
+            return 'O';
+        }
         return 'X';
     }
 }

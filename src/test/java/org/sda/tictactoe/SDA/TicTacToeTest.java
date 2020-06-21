@@ -44,5 +44,12 @@ class TicTacToeTest {
         .isEqualTo('X');
     }
 
+    @Test
+    public void givenSecondTurnWhenNextPlayerThenY() {
+        ticTacToe.play(1, 1);
+        assertThat(ticTacToe.nextPlayer())
+                .isEqualTo('O');
+    }
+
 
 }
