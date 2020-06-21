@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 class TicTacToeTest {
     private TicTacToe ticTacToe;
@@ -28,20 +27,21 @@ class TicTacToeTest {
         assertThatThrownBy(() -> ticTacToe.play(5, 3))
                 .isInstanceOf(RuntimeException.class);
     }
+
     @Test
     public void whenOccupiedThenRuntimeException() {
         //given
-        ticTacToe.play(2,2);
+        ticTacToe.play(2, 2);
 
         //then
-        assertThatThrownBy(() -> ticTacToe.play(2,2))
+        assertThatThrownBy(() -> ticTacToe.play(2, 2))
                 .isInstanceOf(RuntimeException.class);
     }
 
     @Test
     public void givenFirstTurnWhenNextPlayerThenX() {
         assertThat(ticTacToe.nextPlayer())
-        .isEqualTo('X');
+                .isEqualTo('X');
     }
 
     @Test
@@ -62,7 +62,7 @@ class TicTacToeTest {
 
     @Test
     public void whenPlayThenNoWinner() {
-        String actual = ticTacToe.play(1,1);
+        String actual = ticTacToe.play(1, 1);
 
         assertThat(actual)
                 .isEqualTo("No winner");
@@ -74,11 +74,12 @@ class TicTacToeTest {
         ticTacToe.play(1, 2);
         ticTacToe.play(2, 1);
         ticTacToe.play(2, 2);
-       String actual = ticTacToe.play(3, 1);
+        String actual = ticTacToe.play(3, 1);
 
         assertThat(actual)
                 .isEqualTo("X is the winner");
     }
+
     @Test
     public void WhenPlayAndWholeVerticalLineThenWinner() {
         ticTacToe.play(1, 1);

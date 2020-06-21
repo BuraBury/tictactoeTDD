@@ -2,9 +2,10 @@ package org.sda.tictactoe.SDA;
 
 public class TicTacToe {
 
-    private Character[][] board = {{'\0', '\0', '\0'},
-            {'\0', '\0', '\0'},
-            {'\0', '\0', '\0'}};
+    private final Character[][] board =
+            {{'\0', '\0', '\0'},
+                    {'\0', '\0', '\0'},
+                    {'\0', '\0', '\0'}};
 
     private char lastPlayer = '\0';
 
@@ -24,7 +25,9 @@ public class TicTacToe {
     public boolean CheckVertical() {
         int i = 0;
         while (i < board.length) {
-            if (board[i][0] == lastPlayer && board[i][1] == lastPlayer && board[i][2] == lastPlayer) {
+            if (board[i][0] == lastPlayer
+                    && board[i][1] == lastPlayer
+                    && board[i][2] == lastPlayer) {
                 return true;
             }
             i++;
@@ -34,7 +37,9 @@ public class TicTacToe {
 
     public boolean checkHorrizontal() {
         for (int i = 0; i < board.length; i++) {
-            if (board[0][i] == lastPlayer && board[1][i] == lastPlayer && board[2][i] == lastPlayer) {
+            if (board[0][i] == lastPlayer
+                    && board[1][i] == lastPlayer
+                    && board[2][i] == lastPlayer) {
                 return true;
             }
         }
