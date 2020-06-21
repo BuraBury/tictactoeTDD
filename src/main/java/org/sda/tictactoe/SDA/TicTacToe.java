@@ -7,15 +7,24 @@ public class TicTacToe {
             {'\0', '\0', '\0'}};
 
     public void play(int X, int Y) {
-        if (X < 1 || X > 3) {
-            throw new RuntimeException("X is outside board");
-        } else if (Y < 1 || Y > 3) {
-            throw new RuntimeException("Y is outside board");
+       checkAxis(X);
+       checkAxis(Y);
+       setBox(X, Y);
+
+    }
+
+    public void checkAxis(int field) {
+        if (field < 1 || field > 3) {
+            throw new RuntimeException("Char is outside board");
         }
+    }
+
+    public void setBox(int X, int Y) {
         if (board[X - 1][Y - 1] != '\0') {
-            throw new RuntimeException("This one is already taken");
+            throw new RuntimeException("This field is already taken");
         } else {
             board[X - 1][Y - 1] = 'X';
         }
     }
+
 }
