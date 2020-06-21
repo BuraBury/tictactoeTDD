@@ -14,18 +14,31 @@ public class TicTacToe {
         lastPlayer = nextPlayer();
         setBox(X, Y, lastPlayer);
 
-        for (int i = 0; i < board.length; i++) {
-            if (board[0][i] == lastPlayer && board[1][i] == lastPlayer && board[2][i] == lastPlayer) {
-                return lastPlayer + " is the winner";
-            }
-        }
-        for (int i = 0; i < board.length; i++) {
-            if (board[i][0] == lastPlayer &&  board[i][1] == lastPlayer && board[i][2] == lastPlayer) {
-                return lastPlayer + " is the winner";
-            }
-        }
+        if (checkHorrizontal()) return lastPlayer + " is the winner";
+
+        if (CheckVertical()) return lastPlayer + " is the winner";
 
         return "No winner";
+    }
+
+    public boolean CheckVertical() {
+        int i = 0;
+        while (i < board.length) {
+            if (board[i][0] == lastPlayer && board[i][1] == lastPlayer && board[i][2] == lastPlayer) {
+                return true;
+            }
+            i++;
+        }
+        return false;
+    }
+
+    public boolean checkHorrizontal() {
+        for (int i = 0; i < board.length; i++) {
+            if (board[0][i] == lastPlayer && board[1][i] == lastPlayer && board[2][i] == lastPlayer) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void checkAxis(int field) {
