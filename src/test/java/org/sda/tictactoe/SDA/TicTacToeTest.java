@@ -16,20 +16,23 @@ class TicTacToeTest {
 
     @Test
     public void whenXIsOutside() {
-        TicTacToe ticTacToe = new TicTacToe();
+
         assertThatThrownBy(() -> ticTacToe.play(5, 3))
                 .isInstanceOf(RuntimeException.class);
     }
 
     @Test
     public void whenYIsOutside() {
-        TicTacToe ticTacToe = new TicTacToe();
+
         assertThatThrownBy(() -> ticTacToe.play(5, 3))
                 .isInstanceOf(RuntimeException.class);
     }
     @Test
-    public void whenItsTaken() {
-        TicTacToe ticTacToe = new TicTacToe();
+    public void whenOccupiedThenRuntimeException() {
+        //given
+        ticTacToe.play(2,2);
+
+        //then
         assertThatThrownBy(() -> ticTacToe.play(2,2))
                 .isInstanceOf(RuntimeException.class);
     }
