@@ -9,5 +9,8 @@ public class TicTacToe {
         if (Y < 1 || Y > 3) {
             throw new RuntimeException("Y is outside board");
         }
+        if (X == Y) {
+            throw new RuntimeException("This one is taken");
+        }
     }
 }
