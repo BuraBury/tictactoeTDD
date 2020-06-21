@@ -8,13 +8,19 @@ public class TicTacToe {
 
     private char lastPlayer = '\0';
 
-    public String  play(int X, int Y) {
+    public String play(int X, int Y) {
         checkAxis(X);
         checkAxis(Y);
         lastPlayer = nextPlayer();
         setBox(X, Y, lastPlayer);
-        for(int i = 0; i < board.length; i++) {
+
+        for (int i = 0; i < board.length; i++) {
             if (board[0][i] == lastPlayer && board[1][i] == lastPlayer && board[2][i] == lastPlayer) {
+                return lastPlayer + " is the winner";
+            }
+        }
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][0] == lastPlayer &&  board[i][1] == lastPlayer && board[i][2] == lastPlayer) {
                 return lastPlayer + " is the winner";
             }
         }
@@ -42,7 +48,6 @@ public class TicTacToe {
         }
         return 'X';
     }
-
 
 
 }
