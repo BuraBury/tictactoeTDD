@@ -10,7 +10,6 @@ public class TicTacToe {
        checkAxis(X);
        checkAxis(Y);
        setBox(X, Y);
-
     }
 
     public void checkAxis(int field) {
@@ -27,4 +26,8 @@ public class TicTacToe {
         }
     }
 
+    public char nextPlayer() {
+
+        return 'X';
+    }
 }
