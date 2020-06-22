@@ -1,37 +1,47 @@
 package org.sda.tictactoe.SDA;
 
+import java.util.Scanner;
+
 public class TicTacToe {
 
+    public static Scanner scanner = new Scanner(System.in);
     private final Character[][] board =
 
-                    {{'\0', '\0', '\0'},
-                    {'\0', '\0', '\0'},
-                    {'\0', '\0', '\0'}};
+            {{'\0', '\0', '\0'},
+             {'\0', '\0', '\0'},
+             {'\0', '\0', '\0'}};
 
 
     private char lastPlayer = '\0';
 
 
     public static void printBoard() {
-
+        System.out.print("Tic Tac Toe");
         for (int i = 0; i < 3; i++) {
             System.out.println();
             for (int j = 0; j < 3; j++) {
                 System.out.print('_' + " ");
             }
         }
+        System.out.println();
+    }
+
+    public static int inputValue() {
+        return scanner.nextInt();
     }
 
     public String play(int X, int Y) {
-        printBoard();
+
         checkAxis(X);
+
         checkAxis(Y);
+
         lastPlayer = nextPlayer();
         setBox(X, Y, lastPlayer);
 
         if (checkHorrizontal()) return lastPlayer + " is the winner";
 
-        if (CheckVertical()) return lastPlayer + " is the winner";
+        if (checkVertical()) return lastPlayer + " is the winner";
 
         if (checkFirstDiagonal()) return lastPlayer + " is the winner";
 
@@ -40,14 +50,20 @@ public class TicTacToe {
         return "No winner";
     }
 
-    public boolean CheckVertical() {
+    public boolean checkRemis() {
+
+
+        return false;
+    }
+
+    public boolean checkVertical() {
         int i = 0;
         while (i < board.length) {
             if (
                     board[i][0] == lastPlayer
                     && board[i][1] == lastPlayer
                     && board[i][2] == lastPlayer
-            ){
+            ) {
                 return true;
             }
             i++;
@@ -61,7 +77,7 @@ public class TicTacToe {
                     board[0][i] == lastPlayer
                     && board[1][i] == lastPlayer
                     && board[2][i] == lastPlayer
-            ){
+            ) {
                 return true;
             }
         }
@@ -70,9 +86,9 @@ public class TicTacToe {
 
     public boolean checkFirstDiagonal() {
         return
-                board[0][0] == lastPlayer
-                && board[1][1] == lastPlayer
-                && board[2][2] == lastPlayer;
+                 board[0][0] == lastPlayer
+                 && board[1][1] == lastPlayer
+                 && board[2][2] == lastPlayer;
     }
 
     public boolean checkSecondDiagonal() {
@@ -104,7 +120,10 @@ public class TicTacToe {
         return 'X';
     }
 
-
+//    public static void main(String[] args) {
+//        TicTacToe ticTacToe = new TicTacToe();
+//        ticTacToe.play('\0','\0');
+//    }
 
 
 }

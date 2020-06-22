@@ -115,6 +115,17 @@ class TicTacToeTest {
         assertThat(actual)
                 .isEqualTo("X is the winner");
     }
+//
+//    @Test
+//    public void IsInputedCoordinateValid() {
+//        //given
+//        ticTacToe.play(2, 2);
+//        //then
+//        assertThatThrownBy(() -> ticTacToe.play(2, 2))
+//                .as("Wrong format of the input, it should be the number from 1 - 3")
+//                .isInstanceOf(NumberFormatException.class);
+//    }
+
 
 
 }
